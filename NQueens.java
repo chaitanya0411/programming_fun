@@ -1,9 +1,14 @@
+/*
+ * The n-queens puzzle is the problem of placing n queens on an n×n chessboard 
+ * such that no two queens attack each other. Given an integer n, program prints
+ * all distinct solutions to the n-queens puzzle.
+ */
+
 import java.util.*;
 
 public class NQueens
 {
     public void solveNQueens(int n)
-
     {
         traverse(new int[n][n], 0, n);
     }
@@ -36,16 +41,9 @@ public class NQueens
             {
                 if(matrix[p][q] == 1)
                 {
-                    if(q == j)
+                    if(q == j || (Math.abs(p - i) == Math.abs(q - j)))
                     {
                         return false;
-                    }
-                    else
-                    {
-                        if(Math.abs(p - i) == Math.abs(q - j))
-                        {
-                            return false;
-                        }
                     }
                 }
             }
@@ -57,12 +55,12 @@ public class NQueens
     {
         for(int i = 0; i < n; i++)
         {
-            String x = "";
+            String row = "";
             for(int j = 0; j < n; j++)
             {
-                x += matrix[i][j] + " ";
+                row += matrix[i][j] + " ";
             }
-            System.out.println(x);
+            System.out.println(row);
         }
     }
 
