@@ -1,8 +1,6 @@
-package games;
-
-
 //https://en.wikipedia.org/wiki/Conway's_Game_of_Life
 
+package games;
 public class GameOfLife
 {    
     public void gameOfLife(int[][] board)
@@ -11,11 +9,9 @@ public class GameOfLife
         {
             int count;
             int liveNeighbors;
-            
             do
             {
                 count = 0;
-                
                 for(int i = 0; i < board.length; i++)
                 {
                     for(int j = 0; j < board[0].length; j++)
@@ -44,9 +40,24 @@ public class GameOfLife
                     }
                 }
                 
+                printBoard(board, board.length, board[0].length);
+                
             }while(count > 0);
         }
         
+    }
+    
+    private void printBoard(int[][] matrix, int m, int n)
+    {
+        for(int i = 0; i < m; i++)
+        {
+            String line = "";
+            for(int j = 0; j < n; j++)
+            {
+                line += matrix[i][j] + " ";
+            }
+            System.out.println(line);
+        }
     }
     
     //This is not optimal! Trying to find another way to do this!
